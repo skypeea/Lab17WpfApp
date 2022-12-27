@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Lab17WpfApp.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab17WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="300"
+            Name="colorPicker">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Slider Name="sliderRed" Minimum="0" Maximum="255"
+                Value="{Binding ElementName=colorPicker, Path=Red}" Grid.ColumnSpan="2"></Slider>
+        <Slider Name="sliderGreen" Minimum="0" Maximum="255" Grid.Row="1"
+                Value="{Binding ElementName=colorPicker, Path=Green}" Grid.ColumnSpan="2"></Slider>
+        <Slider Name="sliderBlue" Minimum="0" Maximum="255" Grid.Row="2"
+                Value="{Binding ElementName=colorPicker, Path=Blue}" Grid.ColumnSpan="2"></Slider>
+        <Rectangle Grid.Column="2" Grid.RowSpan="3" Width="150" Stroke="Black" StrokeThickness="1"
+                   StrokeDashArray="2 1" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding ElementName=colorPicker,Path=Color}"></SolidColorBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>
